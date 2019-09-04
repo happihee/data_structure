@@ -1,51 +1,51 @@
-#include <iostream> //Çì´õÆÄÀÏ ¼±¾ğ
-#include <ctime> //srand¸¦ À§ÇÑ Çì´õÆÄÀÏ ¼±¾ğ
-#include <cstdlib> //rand¸¦ À§ÇÑ Çì´õÆÄÀÏ ¼±¾ğ
+#include <iostream> //í—¤ë”íŒŒì¼ ì„ ì–¸
+#include <ctime> //srandë¥¼ ìœ„í•œ í—¤ë”íŒŒì¼ ì„ ì–¸
+#include <cstdlib> //randë¥¼ ìœ„í•œ í—¤ë”íŒŒì¼ ì„ ì–¸
 using namespace std;
 
-int main() //mainÇÔ¼öÀÇ ½ÃÀÛ
+int main() //mainí•¨ìˆ˜ì˜ ì‹œì‘
 {
 	int num, i, j;
-	int arr[100]; //randomÀ¸·Î Ãâ·Â µÉ ¼ıÀÚ°¡ ÀúÀåµÇ´Â ¹è¿­ arr
-	int arr_count[20] = { 0 }; //Áßº¹ µÈ ¼ıÀÚ°¡ µû·Î ÀúÀåµÇ´Â ¹è¿­ arr_count
+	int arr[100]; //randomìœ¼ë¡œ ì¶œë ¥ ë  ìˆ«ìê°€ ì €ì¥ë˜ëŠ” ë°°ì—´ arr
+	int arr_count[20] = { 0 }; //ì¤‘ë³µ ëœ ìˆ«ìê°€ ë”°ë¡œ ì €ì¥ë˜ëŠ” ë°°ì—´ arr_count
 
 	srand((unsigned)time(NULL));
 	cout << "Input N : ";
-	cin >> num; //·£´ıÀ¸·Î ¸î°³ÀÇ ¼ıÀÚ°¡ Ãâ·ÂµÉ Áö¸¦ Á¤ÇÔ.
+	cin >> num; //ëœë¤ìœ¼ë¡œ ëª‡ê°œì˜ ìˆ«ìê°€ ì¶œë ¥ë  ì§€ë¥¼ ì •í•¨.
 	if (num < 1 || num>20) {
 		cout << "error!" << endl;
 		return 0;
 	}
 	cout << "random number:";
-	for (i = 0; i < num; i++) { //0ºÎÅÍ numÀÌ ÀÔ·ÂÇÑ ¼ıÀÚ ¸¸Å­ ¹İº¹ÇØ¼­ arr¾È¿¡ ·£´ıÀ¸·Î ¼ıÀÚ°¡ µé¾î°¥ ¼ö ÀÖµµ·Ï ÇÏ´Â ¹İº¹¹®
-		arr[i] = rand() % 20 + 1; //arrÀÇ i¹øÂ° ¼ø¼­¿¡ ·£´ı ¼ıÀÚ¸¦ ³Ö¾îÁÜ
-		cout << arr[i] << ' '; //ÀúÀåµÈ ¼ıÀÚ¸¦ Ãâ·Â
+	for (i = 0; i < num; i++) { //0ë¶€í„° numì´ ì…ë ¥í•œ ìˆ«ì ë§Œí¼ ë°˜ë³µí•´ì„œ arrì•ˆì— ëœë¤ìœ¼ë¡œ ìˆ«ìê°€ ë“¤ì–´ê°ˆ ìˆ˜ ìˆë„ë¡ í•˜ëŠ” ë°˜ë³µë¬¸
+		arr[i] = rand() % 20 + 1; //arrì˜ ië²ˆì§¸ ìˆœì„œì— ëœë¤ ìˆ«ìë¥¼ ë„£ì–´ì¤Œ
+		cout << arr[i] << ' '; //ì €ì¥ëœ ìˆ«ìë¥¼ ì¶œë ¥
 	}
 
 	cout << endl;
 
-	for (i = 0; i < num; i++) { //arr¿¡ ÀúÀåµÈ °ªµéÀ» Á¤·ÄÇÏ±â À§ÇÑ 2Áß ¹İº¹¹®
+	for (i = 0; i < num; i++) { //arrì— ì €ì¥ëœ ê°’ë“¤ì„ ì •ë ¬í•˜ê¸° ìœ„í•œ 2ì¤‘ ë°˜ë³µë¬¸
 		for (j = i + 1; j < num; j++) {
-			if (arr[i] == arr[j]) { //¹è¿­ÀÇ i°ª°ú ±×´ÙÀ½ °ªÀÌ °°À» ¶§ arr_count¿¡ °ªÀ» Ãß°¡ÇÏ´Â if¹®
+			if (arr[i] == arr[j]) { //ë°°ì—´ì˜ iê°’ê³¼ ê·¸ë‹¤ìŒ ê°’ì´ ê°™ì„ ë•Œ arr_countì— ê°’ì„ ì¶”ê°€í•˜ëŠ” ifë¬¸
 				arr_count[i]++;
-				arr[j] = 0; //arr[j]¸¦ ÃÊ±âÈ­
+				arr[j] = 0; //arr[j]ë¥¼ ì´ˆê¸°í™”
 			}
 		}
 	}
-	for (i = 0; i < num; i++) { //arr_count¿¡ Ãß°¡µÈ ¼ıÀÚµéÀ» Å« ¼ø¼­´ë·Î Á¤·ÄÇØÁÖ´Â 2Áß ¹İº¹¹®
+	for (i = 0; i < num; i++) { //arr_countì— ì¶”ê°€ëœ ìˆ«ìë“¤ì„ í° ìˆœì„œëŒ€ë¡œ ì •ë ¬í•´ì£¼ëŠ” 2ì¤‘ ë°˜ë³µë¬¸
 		for (j = 0; j < num - 1; j++) {
-			if (arr_count[j] < arr_count[j + 1]) { //arr_count¿¡ j¹øÂ°¿Í j+1¹øÂ°¸¦ ºñ±³ÇßÀ» ¶§ j+1ÀÌ ´õ Å©¸é Å«¼ø¼­´ë·Î Á¤·ÄÇÏ´Â if¹®
+			if (arr_count[j] < arr_count[j + 1]) { //arr_countì— jë²ˆì§¸ì™€ j+1ë²ˆì§¸ë¥¼ ë¹„êµí–ˆì„ ë•Œ j+1ì´ ë” í¬ë©´ í°ìˆœì„œëŒ€ë¡œ ì •ë ¬í•˜ëŠ” ifë¬¸
 				int tmp = arr_count[j];
 				arr_count[j] = arr_count[j + 1];
 				arr_count[j + 1] = tmp;
 
-				int tmp2 = arr[j]; //arr_count¸¦ ºñ±³ÇÔ°ú µ¿½Ã¿¡, arr¾ÈÀÇ ¿ä¼Òµéµµ °°ÀÌ º¯°æ
+				int tmp2 = arr[j]; //arr_countë¥¼ ë¹„êµí•¨ê³¼ ë™ì‹œì—, arrì•ˆì˜ ìš”ì†Œë“¤ë„ ê°™ì´ ë³€ê²½
 				arr[j] = arr[j + 1];
 				arr[j + 1] = tmp2;
 			}
 		}
 	}
-	for (i = 0; i < num; i++) { //arr_count°¡ °°À» ¶§ °°Àº ¼ö¸¸Å­ Á¤·ÄµÈ °Í ³¢¸® Å« ¼ø¼­´ë·Î Á¤·ÄÇÏ´Â 2Áß ¹İº¹¹®
+	for (i = 0; i < num; i++) { //arr_countê°€ ê°™ì„ ë•Œ ê°™ì€ ìˆ˜ë§Œí¼ ì •ë ¬ëœ ê²ƒ ë¼ë¦¬ í° ìˆœì„œëŒ€ë¡œ ì •ë ¬í•˜ëŠ” 2ì¤‘ ë°˜ë³µë¬¸
 		for (j = 0; j < num - 1; j++) {
 			if (arr_count[j] == arr_count[j + 1]) {
 				if (arr[j] < arr[j + 1]) {
@@ -57,10 +57,11 @@ int main() //mainÇÔ¼öÀÇ ½ÃÀÛ
 		}
 	}
 
-	for (i = 0; i < num; i++) { //Á¤·ÄÀÌ ³¡³­ arr¿Í arr_count ¸¦ Ãâ·ÂÇØÁÖ±â À§ÇÑ ¹İº¹¹®
+	for (i = 0; i < num; i++) { //ì •ë ¬ì´ ëë‚œ arrì™€ arr_count ë¥¼ ì¶œë ¥í•´ì£¼ê¸° ìœ„í•œ ë°˜ë³µë¬¸
 		if (arr[i] != 0) {
 			cout << arr[i] << '-' << arr_count[i] + 1 << endl;
 		}
 	}
 	return 0;
+	
 }
