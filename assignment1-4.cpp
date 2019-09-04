@@ -1,25 +1,25 @@
 #include <iostream>
 using namespace std;
 
-int CalcLength(char *str) //str ÀÇ ±æÀÌ¸¦ °è»êÇÏ´Â ÇÔ¼ö
+int CalcLength(char *str) //str ì˜ ê¸¸ì´ë¥¼ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜
 {
 	int len;
 	for (len = 0; str[len] != NULL; len++) {
 		return len;
 	}
 }
-bool CompareString(const char *str1, const char *str2) //str1°ú str2 µÎ°³ÀÇ ¹®ÀåÀ» ºñ±³ÇÏ´Â ÇÔ¼ö
+bool CompareString(const char *str1, const char *str2) //str1ê³¼ str2 ë‘ê°œì˜ ë¬¸ì¥ì„ ë¹„êµí•˜ëŠ” í•¨ìˆ˜
 {
 	for (int i = 0; i < 65; i++) {
-		if (str1[i] != str2[i]) { //µÎ°³ÀÇ ¿ä¼Ò °ªÀÌ ´Ù¸£¸é false ¸¦ ¹İÈ¯
+		if (str1[i] != str2[i]) { //ë‘ê°œì˜ ìš”ì†Œ ê°’ì´ ë‹¤ë¥´ë©´ false ë¥¼ ë°˜í™˜
 			return false;
 		}
 		return true;
 	}
 }
-bool CompareWord(char *str1, char *str2) //´ë¼Ò¹®ÀÚ °ü°è¾øÀÌ ¹®Àå ³»¿ëÀÌ °°À¸¸é °°À½À» ¾Ë·ÁÁÖ´Â ÇÔ¼ö
+bool CompareWord(char *str1, char *str2) //ëŒ€ì†Œë¬¸ì ê´€ê³„ì—†ì´ ë¬¸ì¥ ë‚´ìš©ì´ ê°™ìœ¼ë©´ ê°™ìŒì„ ì•Œë ¤ì£¼ëŠ” í•¨ìˆ˜
 {
-	for (int i = 0; i < 65; i++) { //¼Ò¹®ÀÚÀÏ ¶§ ´ë¹®ÀÚ·Î ¹Ù²ãÁÖ´Â ¹İº¹¹®
+	for (int i = 0; i < 65; i++) { //ì†Œë¬¸ìì¼ ë•Œ ëŒ€ë¬¸ìë¡œ ë°”ê¿”ì£¼ëŠ” ë°˜ë³µë¬¸
 		if (96 < str1[i] && 123 > str1[i]) {
 			str1[i] -= 32;
 		}
@@ -27,7 +27,7 @@ bool CompareWord(char *str1, char *str2) //´ë¼Ò¹®ÀÚ °ü°è¾øÀÌ ¹®Àå ³»¿ëÀÌ °°À¸¸é 
 			str2[i] -= 32;
 
 		}
-		if (str1[i] != str2[i]) { //¼Ò¹®ÀÚ¿¡¼­ ´ë¹®ÀÚ·Î º¯ÇÑ °ªÀÌ ´Ù¸£¸é false¸¦ ¹İÈ¯
+		if (str1[i] != str2[i]) { //ì†Œë¬¸ìì—ì„œ ëŒ€ë¬¸ìë¡œ ë³€í•œ ê°’ì´ ë‹¤ë¥´ë©´ falseë¥¼ ë°˜í™˜
 			return false;
 		}
 	}
@@ -36,7 +36,7 @@ bool CompareWord(char *str1, char *str2) //´ë¼Ò¹®ÀÚ °ü°è¾øÀÌ ¹®Àå ³»¿ëÀÌ °°À¸¸é 
 
 int main()
 {
-	char str1[65] = { NULL }, str2[65] = { NULL }; //str1°ú str2¸¦ ÃÊ±âÈ­
+	char str1[65] = { NULL }, str2[65] = { NULL }; //str1ê³¼ str2ë¥¼ ì´ˆê¸°í™”
 	int len1, len2;
 
 	cout << "str1:";
@@ -45,19 +45,19 @@ int main()
 	cin.getline(str2, 65);
 
 	while (1) {
-		if (CompareWord(str1, str2) == false) { //´ë¼Ò¹®ÀÚ °ü°è¾øÀÌ ¹®ÀÚ¿­ÀÌ ´Ù¸£¸é differentÀÓÀ» Ãâ·Â
+		if (CompareWord(str1, str2) == false) { //ëŒ€ì†Œë¬¸ì ê´€ê³„ì—†ì´ ë¬¸ìì—´ì´ ë‹¤ë¥´ë©´ differentì„ì„ ì¶œë ¥
 			cout << "They are different" << endl;
 			break;
 		}
-		else if (CompareWord(str1, str2) == true) { //´ë¼Ò¹®ÀÚ °ü°è¾øÀÌ ¹®ÀÚ¿­ °°À¸¸é equalÀÓÀ» Ãâ·Â
+		else if (CompareWord(str1, str2) == true) { //ëŒ€ì†Œë¬¸ì ê´€ê³„ì—†ì´ ë¬¸ìì—´ ê°™ìœ¼ë©´ equalì„ì„ ì¶œë ¥
 			cout << "They are equal" << endl;
 			break;
 		}
-		if (CompareString(str1, str2) == false) { //¹®ÀÚ¿­ ±æÀÌ¸¦ ºñ±³ÇßÀ» ¶§ ±æÀÌ°¡ ´Ù¸£¸é differentÀÓÀ» Ãâ·Â
+		if (CompareString(str1, str2) == false) { //ë¬¸ìì—´ ê¸¸ì´ë¥¼ ë¹„êµí–ˆì„ ë•Œ ê¸¸ì´ê°€ ë‹¤ë¥´ë©´ differentì„ì„ ì¶œë ¥
 			cout << "They are different" << endl;
 			break;
 		}
-		else if (CompareString(str1, str2) == true) { //¹®ÀÚ¿­ ±æÀÌ¸¦ ºñ±³ÇßÀ» ¶§ ±æÀÌ°¡ ´Ù¸£¸é equalÀÓÀ» Ãâ·Â
+		else if (CompareString(str1, str2) == true) { //ë¬¸ìì—´ ê¸¸ì´ë¥¼ ë¹„êµí–ˆì„ ë•Œ ê¸¸ì´ê°€ ë‹¤ë¥´ë©´ equalì„ì„ ì¶œë ¥
 			if (CalcLength(str1) != CalcLength(str2)) {
 				cout << "They are different" << endl;
 				break;
@@ -67,4 +67,5 @@ int main()
 		}
 	}
 	return 0;
+	
 }
