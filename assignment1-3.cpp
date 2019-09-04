@@ -1,44 +1,44 @@
-#include <iostream> //Çì´õÆÄÀÏ ¼±¾ğ
+#include <iostream> //í—¤ë”íŒŒì¼ ì„ ì–¸
 #include <ctime>
 #include <cstdlib>
 using namespace std;
 
 int turn = 0;
-void InputUserNum(int *num) //userÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+void InputUserNum(int *num) //userì˜ ìˆ«ìë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
 {
 	int i;
 
 	while (1) {
-		int check = 0; //ÀÌ¹Ì ÀÔ·ÂÇÑ ¼ıÀÚ¸¦ ÆÇº°ÇÏ±â À§ÇÑ º¯¼ö
+		int check = 0; //ì´ë¯¸ ì…ë ¥í•œ ìˆ«ìë¥¼ íŒë³„í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
 
 		cout << "Call a number(1~25) : ";
 		int input;
-		cin >> input; //Ã£À» ºù°í ¼ıÀÚ¸¦ ÀÔ·Â
+		cin >> input; //ì°¾ì„ ë¹™ê³  ìˆ«ìë¥¼ ì…ë ¥
 
-		if (input < 1 || input>25) { //inputÀÌ 1º¸´Ù ÀÛ°Å³ª, 25º¸´Ù Å©¸é ÀçÀÔ·Â ÇÏµµ·Ï ÇÔ.
+		if (input < 1 || input>25) { //inputì´ 1ë³´ë‹¤ ì‘ê±°ë‚˜, 25ë³´ë‹¤ í¬ë©´ ì¬ì…ë ¥ í•˜ë„ë¡ í•¨.
 			cout << "input again !" << endl;
 			continue;
 		}
 		else {
 			for (int i = 0; i < 25; i++) {
-				if (num[i] == input) { //ÀÔ·ÂÇÑ ¼ıÀÚ°¡ ÇÑ¹ø ´õ ÀÔ·ÂµÇÁö ¾Êµµ·Ï Áßº¹ Ã¼Å©ÇÏ´Â ¹İº¹¹®
+				if (num[i] == input) { //ì…ë ¥í•œ ìˆ«ìê°€ í•œë²ˆ ë” ì…ë ¥ë˜ì§€ ì•Šë„ë¡ ì¤‘ë³µ ì²´í¬í•˜ëŠ” ë°˜ë³µë¬¸
 					check++;
 				}
 			}
 		}
 
-		if (check != 0) { //¸¸¾à num[i]ÀÇ ¿ä¼Ò¿Í inputÀÌ °°¾Æ check¿¡ ++ÀÌ µÇ¸é Àç ÀÔ·ÂÀ» ÇÏµµ·Ï ÇÏ´Â if¹®
+		if (check != 0) { //ë§Œì•½ num[i]ì˜ ìš”ì†Œì™€ inputì´ ê°™ì•„ checkì— ++ì´ ë˜ë©´ ì¬ ì…ë ¥ì„ í•˜ë„ë¡ í•˜ëŠ” ifë¬¸
 			cout << "this number is already input. input again!" << endl;
 		}
 		else {
-			num[turn++] = input; //¹è¿­ num¿¡ ÀÔ·ÂÇÑ °ªÀ» ÀúÀåÇÏµµ·Ï ÇÔ
+			num[turn++] = input; //ë°°ì—´ numì— ì…ë ¥í•œ ê°’ì„ ì €ì¥í•˜ë„ë¡ í•¨
 			break;
 		}
 
 	}
 
 }
-void InputComNum(int *num) //computerÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
+void InputComNum(int *num) //computerì˜ ìˆ«ìë¥¼ ì…ë ¥í•˜ëŠ” í•¨ìˆ˜
 {
 	srand((unsigned)time(NULL));
 
@@ -46,27 +46,27 @@ void InputComNum(int *num) //computerÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
 		int check = 0;
 		cout << "Computer calls: ";
 		int input;
-		input = rand() % 25 + 1; //1~25±îÁöÀÇ ¼ıÀÚ¸¦ ·£´ıÀ¸·Î È£Ãâ
+		input = rand() % 25 + 1; //1~25ê¹Œì§€ì˜ ìˆ«ìë¥¼ ëœë¤ìœ¼ë¡œ í˜¸ì¶œ
 
 		for (int i = 0; i < 25; i++) {
-			if (num[i] == input) //ÀÔ·ÂÇÑ ¼ıÀÚ°¡ ÇÑ¹ø ´õ ÀÔ·ÂµÇÁö ¾Êµµ·Ï Áßº¹ Ã¼Å©ÇÏ´Â ¹İº¹¹®
+			if (num[i] == input) //ì…ë ¥í•œ ìˆ«ìê°€ í•œë²ˆ ë” ì…ë ¥ë˜ì§€ ì•Šë„ë¡ ì¤‘ë³µ ì²´í¬í•˜ëŠ” ë°˜ë³µë¬¸
 			{
 				check++;
 			}
 		}
 
-		if (check != 0) { //¸¸¾à num[i]ÀÇ ¿ä¼Ò¿Í inputÀÌ °°¾Æ check¿¡ ++ÀÌ µÇ¸é Àç ÀÔ·ÂÀ» ÇÏµµ·Ï ÇÏ´Â if¹®
+		if (check != 0) { //ë§Œì•½ num[i]ì˜ ìš”ì†Œì™€ inputì´ ê°™ì•„ checkì— ++ì´ ë˜ë©´ ì¬ ì…ë ¥ì„ í•˜ë„ë¡ í•˜ëŠ” ifë¬¸
 			cout << input << "this number is already input. input again!" << endl;
 		}
 		else {
 			cout << input << endl;
-			num[turn++] = input;//¹è¿­ num¿¡ computer°¡ ºÎ¸¥ ·£´ı input °ªÀ» ÀúÀåÇÏµµ·Ï ÇÔ
+			num[turn++] = input;//ë°°ì—´ numì— computerê°€ ë¶€ë¥¸ ëœë¤ input ê°’ì„ ì €ì¥í•˜ë„ë¡ í•¨
 			break;
 		}
 	}
 	cout << endl;
 }
-void CheckExistNum(int(*arr)[5]) //ºù°íÆÇ¿¡ ¼ıÀÚ°¡ »ı¼ºµÉ ¶§ Áßº¹¾øÀÌ »ı¼ºµÇµµ·Ï ¸¸µå´Â ÇÔ¼ö
+void CheckExistNum(int(*arr)[5]) //ë¹™ê³ íŒì— ìˆ«ìê°€ ìƒì„±ë  ë•Œ ì¤‘ë³µì—†ì´ ìƒì„±ë˜ë„ë¡ ë§Œë“œëŠ” í•¨ìˆ˜
 {
 	int Max_temp[25];
 	int i, j, temp1, temp2, count;
@@ -74,17 +74,17 @@ void CheckExistNum(int(*arr)[5]) //ºù°íÆÇ¿¡ ¼ıÀÚ°¡ »ı¼ºµÉ ¶§ Áßº¹¾øÀÌ »ı¼ºµÇµµ·Ï
 	count = 0;
 
 	for (i = 0; i < 25; i++) {
-		Max_temp[i] = i + 1; //Max_temp ¹è¿­À» 1 ºÎÅÍ 25·Î ÃÊ±âÈ­
+		Max_temp[i] = i + 1; //Max_temp ë°°ì—´ì„ 1 ë¶€í„° 25ë¡œ ì´ˆê¸°í™”
 	}
-	for (i = 0; i < 5; i++) { //°¢ ¹è¿­¿¡ ÇØ´çµÇ´Â Ä­À» Â÷·Ê·Î 0À¸·Î ÃÊ±âÈ­
+	for (i = 0; i < 5; i++) { //ê° ë°°ì—´ì— í•´ë‹¹ë˜ëŠ” ì¹¸ì„ ì°¨ë¡€ë¡œ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 		for (j = 0; j < 5; j++) {
 			arr[i][j] = 0;
 		}
 	}
-	while (count != 25) { //count°¡ 25°¡ µÇ±â Àü±îÁö ¹İº¹
+	while (count != 25) { //countê°€ 25ê°€ ë˜ê¸° ì „ê¹Œì§€ ë°˜ë³µ
 		temp1 = rand() % 5;
 		temp2 = rand() % 5;
-		if (arr[temp1][temp2] == 0) { //¹è¿­ÀÇ ÇØ´çÇÏ´Â Ä­ÀÎ temp1 °ú temp2¸¦ ·£´ıÀ¸·Î Àâ°í Max_tempÀÇ °ªÀ» ³Ö¾îÁÜ
+		if (arr[temp1][temp2] == 0) { //ë°°ì—´ì˜ í•´ë‹¹í•˜ëŠ” ì¹¸ì¸ temp1 ê³¼ temp2ë¥¼ ëœë¤ìœ¼ë¡œ ì¡ê³  Max_tempì˜ ê°’ì„ ë„£ì–´ì¤Œ
 			arr[temp1][temp2] = Max_temp[count];
 			count++;
 		}
@@ -95,10 +95,10 @@ void CheckExistNum(int(*arr)[5]) //ºù°íÆÇ¿¡ ¼ıÀÚ°¡ »ı¼ºµÉ ¶§ Áßº¹¾øÀÌ »ı¼ºµÇµµ·Ï
 	}
 }
 
-void MakeArray(int(*arr)[5]) // 5X5 ·£´ı ºù°íÆÇÀ» »ı¼ºÇÏ´Â ÇÔ¼ö
+void MakeArray(int(*arr)[5]) // 5X5 ëœë¤ ë¹™ê³ íŒì„ ìƒì„±í•˜ëŠ” í•¨ìˆ˜
 {
 	int i, j;
-	CheckExistNum(arr); //Áßº¹µÇ´Â ¼ıÀÚ°¡ ¾øµµ·Ï »ı¼º.
+	CheckExistNum(arr); //ì¤‘ë³µë˜ëŠ” ìˆ«ìê°€ ì—†ë„ë¡ ìƒì„±.
 	for (i = 0; i < 5; i++) {
 		for (j = 0; j < 5; j++) {
 			cout << arr[i][j] << ' ';
@@ -107,20 +107,20 @@ void MakeArray(int(*arr)[5]) // 5X5 ·£´ı ºù°íÆÇÀ» »ı¼ºÇÏ´Â ÇÔ¼ö
 	}
 }
 
-void FindSameNum(int(*arr)[5], int *num) //¶È°°Àº ¼ıÀÚ¸¦ Ã£¾Æ, ±× ¼ıÀÚ¸¦ '#' ÀÌ¶ó´Â ¹®ÀÚ·Î º¯°æ½ÃÄÑÁÖ´Â ÇÔ¼ö
+void FindSameNum(int(*arr)[5], int *num) //ë˜‘ê°™ì€ ìˆ«ìë¥¼ ì°¾ì•„, ê·¸ ìˆ«ìë¥¼ '#' ì´ë¼ëŠ” ë¬¸ìë¡œ ë³€ê²½ì‹œì¼œì£¼ëŠ” í•¨ìˆ˜
 {
 	int i, j;
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
 			for (int k = 0; k < 25; k++) {
-				if (num[k] == arr[i][j]) //num ¹è¿­¾ÈÀÇ °ª°ú arr ¹è¿­¾ÈÀÇ °ªÀÌ °°À¸¸é ±×°ªÀ» -1·Î º¯°æ
+				if (num[k] == arr[i][j]) //num ë°°ì—´ì•ˆì˜ ê°’ê³¼ arr ë°°ì—´ì•ˆì˜ ê°’ì´ ê°™ìœ¼ë©´ ê·¸ê°’ì„ -1ë¡œ ë³€ê²½
 					arr[i][j] = -1;
 			}
 		}
 	}
 	for (i = 0; i < 5; i++) {
 		for (j = 0; j < 5; j++) {
-			if (arr[i][j] == -1) //-1·Î º¯°æµÈ °ªÀ» #·Î ´Ù½Ã ¹Ù²ãÁÜ
+			if (arr[i][j] == -1) //-1ë¡œ ë³€ê²½ëœ ê°’ì„ #ë¡œ ë‹¤ì‹œ ë°”ê¿”ì¤Œ
 				cout << '#' << ' ';
 			else
 				cout << arr[i][j] << ' ';
@@ -128,16 +128,16 @@ void FindSameNum(int(*arr)[5], int *num) //¶È°°Àº ¼ıÀÚ¸¦ Ã£¾Æ, ±× ¼ıÀÚ¸¦ '#' ÀÌ¶
 		cout << endl;
 	}
 }
-int FindUserBingo(int(*arr)[5]) //UserÀÇ Bingo ¿©ºÎ¸¦ ÆÇ´ÜÇÏ¿©, User°¡ Bingo¸é "User BINGO!"¸¦ Ãâ·ÂÇÏµµ·Ï ÇÏ´Â ÇÔ¼ö
+int FindUserBingo(int(*arr)[5]) //Userì˜ Bingo ì—¬ë¶€ë¥¼ íŒë‹¨í•˜ì—¬, Userê°€ Bingoë©´ "User BINGO!"ë¥¼ ì¶œë ¥í•˜ë„ë¡ í•˜ëŠ” í•¨ìˆ˜
 {
 	int i, j, cnt1 = 0, cnt2 = 0;
 
 	for (i = 0; i < 5; i++) {
 		for (j = 0; j < 5; j++) {
-			if (arr[i][j] == -1) { //°¡·Î ºù°í ÆÇÁ¤ 
+			if (arr[i][j] == -1) { //ê°€ë¡œ ë¹™ê³  íŒì • 
 				cnt1++;
 			}
-			if (arr[j][i] == -1) { //¼¼·Î ºù°í ÆÇÁ¤
+			if (arr[j][i] == -1) { //ì„¸ë¡œ ë¹™ê³  íŒì •
 				cnt2++;
 			}
 			if (cnt1 == 5) {
@@ -159,16 +159,16 @@ int FindUserBingo(int(*arr)[5]) //UserÀÇ Bingo ¿©ºÎ¸¦ ÆÇ´ÜÇÏ¿©, User°¡ Bingo¸é "
 	return 0;
 }
 
-int FindComBingo(int(*arr)[5]) // ComÀÇ Bingo ¿©ºÎ¸¦ ÆÇ´ÜÇÏ¿©, ComÀÌ Bingo¸é "Com BINGO!"¸¦ Ãâ·ÂÇÏµµ·Ï ÇÏ´Â ÇÔ¼ö
+int FindComBingo(int(*arr)[5]) // Comì˜ Bingo ì—¬ë¶€ë¥¼ íŒë‹¨í•˜ì—¬, Comì´ Bingoë©´ "Com BINGO!"ë¥¼ ì¶œë ¥í•˜ë„ë¡ í•˜ëŠ” í•¨ìˆ˜
 {
 	int i, j, cnt1 = 0, cnt2 = 0;
 
 	for (i = 0; i < 5; i++) {
 		for (j = 0; j < 5; j++) {
-			if (arr[i][j] == -1) { //°¡·Î ºù°í ÆÇÁ¤
+			if (arr[i][j] == -1) { //ê°€ë¡œ ë¹™ê³  íŒì •
 				cnt1++;
 			}
-			if (arr[j][i] == -1) { //¼¼·Î ºù°í ÆÇÁ¤
+			if (arr[j][i] == -1) { //ì„¸ë¡œ ë¹™ê³  íŒì •
 				cnt2++;
 			}
 			if (cnt1 == 5) {
@@ -200,23 +200,23 @@ int main()
 
 
 	cout << "<user bingo board>" << endl;
-	MakeArray(user); //userÀÇ 5X5 ·£´ı ÇÔ¼ö »ı¼º
+	MakeArray(user); //userì˜ 5X5 ëœë¤ í•¨ìˆ˜ ìƒì„±
 	cout << endl;
 	cout << "<computer bingo board>" << endl;
-	MakeArray(com); //comÀÇ 5X5 ·£´ı ÇÔ¼ö »ı¼º
+	MakeArray(com); //comì˜ 5X5 ëœë¤ í•¨ìˆ˜ ìƒì„±
 	cout << endl;
 
 	while (1)
 	{
-		InputUserNum(exist_num); //user°¡ ¼ıÀÚ ÀÔ·Â
+		InputUserNum(exist_num); //userê°€ ìˆ«ì ì…ë ¥
 
 		cout << "<user bingo board>" << endl;
-		FindSameNum(user, exist_num); //°°Àº numÀ» Ã£¾Æ #À¸·Î ¹Ù²ãÁÖ´Â ÇÔ¼ö
+		FindSameNum(user, exist_num); //ê°™ì€ numì„ ì°¾ì•„ #ìœ¼ë¡œ ë°”ê¿”ì£¼ëŠ” í•¨ìˆ˜
 		cout << "<computer bingo board>" << endl;
-		FindSameNum(com, exist_num); //°°Àº numÀ» Ã£¾Æ #À¸·Î ¹Ù²ãÁÖ´Â ÇÔ¼ö
+		FindSameNum(com, exist_num); //ê°™ì€ numì„ ì°¾ì•„ #ìœ¼ë¡œ ë°”ê¿”ì£¼ëŠ” í•¨ìˆ˜
 		cout << endl;
 
-		if (FindUserBingo(user) == 1) { //user°¡ ºù°í È¤Àº comµµ µ¿½Ã¿¡ ºù°íÀÏ ¶§ ºù°íÀÓÀ» Ãâ·Â
+		if (FindUserBingo(user) == 1) { //userê°€ ë¹™ê³  í˜¹ì€ comë„ ë™ì‹œì— ë¹™ê³ ì¼ ë•Œ ë¹™ê³ ì„ì„ ì¶œë ¥
 
 			if (FindComBingo(com) == 1)
 			{
@@ -224,18 +224,18 @@ int main()
 			}
 			return 1;
 		}
-		if (FindComBingo(com) == 1) { //comÀÌ ºù°íÀÓÀ» Ãâ·Â
+		if (FindComBingo(com) == 1) { //comì´ ë¹™ê³ ì„ì„ ì¶œë ¥
 			return 1;
 		}
 
-		InputComNum(exist_num); //comÀÇ ¼ıÀÚ ÀÔ·Â
+		InputComNum(exist_num); //comì˜ ìˆ«ì ì…ë ¥
 
 		cout << "<user bingo board>" << endl;
-		FindSameNum(user, exist_num); //°°Àº numÀ» Ã£¾Æ #À¸·Î ¹Ù²ãÁÖ´Â ÇÔ¼ö
+		FindSameNum(user, exist_num); //ê°™ì€ numì„ ì°¾ì•„ #ìœ¼ë¡œ ë°”ê¿”ì£¼ëŠ” í•¨ìˆ˜
 		cout << "<computer bingo board>" << endl;
-		FindSameNum(com, exist_num); //°°Àº numÀ» Ã£¾Æ #À¸·Î ¹Ù²ãÁÖ´Â ÇÔ¼ö
+		FindSameNum(com, exist_num); //ê°™ì€ numì„ ì°¾ì•„ #ìœ¼ë¡œ ë°”ê¿”ì£¼ëŠ” í•¨ìˆ˜
 
-		if (FindUserBingo(user) == 1) { //user°¡ ºù°í È¤Àº comµµ µ¿½Ã¿¡ ºù°íÀÏ ¶§ ºù°íÀÓÀ» Ãâ·Â
+		if (FindUserBingo(user) == 1) { //userê°€ ë¹™ê³  í˜¹ì€ comë„ ë™ì‹œì— ë¹™ê³ ì¼ ë•Œ ë¹™ê³ ì„ì„ ì¶œë ¥
 
 			if (FindComBingo(com) == 1)
 			{
@@ -243,10 +243,11 @@ int main()
 			}
 			return 1;
 		}
-		if (FindComBingo(com) == 1) { //comÀÌ ºù°íÀÓÀ» Ãâ·Â
+		if (FindComBingo(com) == 1) { //comì´ ë¹™ê³ ì„ì„ ì¶œë ¥
 			return 1;
 		}
 
 	}
 	return 0;
+	
 }
